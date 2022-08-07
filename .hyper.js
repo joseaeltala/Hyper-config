@@ -4,10 +4,23 @@
 // See https://hyper.is#cfg for all currently supported options.
 module.exports = {
     config: {
+        paneNavigation: {
+            hotkeys: {
+                navigation: {
+                    up: 'ctrl+shift+j',
+                    down: 'ctrl+shift+k',
+                    left: 'ctrl+shift+h',
+                    right: 'ctrl+shift+l'
+                },
+                jump_prefix: 'ctrl+shift',
+                permutation_modifier: 'alt',
+                showIndicators: true,
+            },
+        },
+    
         hyperBorder: {
-            borderRadiusInner: '15px',
-            borderWidth: '7px',
-            borderAngle: '180deg'
+            borderColors: ['#fbff00'],
+            borderWidth: '4px'
         },
         modifierKeys: 'true',
         // choose either `'stable'` for receiving highly polished,
@@ -37,11 +50,11 @@ module.exports = {
         foregroundColor: '#fff',
         // terminal background color
         // opacity is only supported on macOS
-        backgroundColor: '#000',
+        backgroundColor: '#000000',
         // terminal selection color
         selectionColor: 'rgba(248,28,229,0.3)',
         // border color (window, tabs)
-        borderColor: '#444',
+        borderColor: '#42444444',
         // custom CSS to embed in the main window
         css: '',
         // custom CSS to embed in the terminal window
@@ -61,24 +74,7 @@ module.exports = {
         // including the 6 x 6 color cubes and the grayscale map, just provide
         // an array here instead of a color map object
         colors: {
-            black: '#000000',
-            red: '#C51E14',
-            green: '#1DC121',
-            yellow: '#C7C329',
-            blue: '#0A2FC4',
-            magenta: '#C839C5',
-            cyan: '#20C5C6',
-            white: '#C7C7C7',
-            lightBlack: '#686868',
-            lightRed: '#FD6F6B',
-            lightGreen: '#67F86F',
-            lightYellow: '#FFFA72',
-            lightBlue: '#6A76FB',
-            lightMagenta: '#FD7CFC',
-            lightCyan: '#68FDFE',
-            lightWhite: '#FFFFFF',
-            limeGreen: '#32CD32',
-            lightCoral: '#F08080',
+            lightYellow: '#FFFA72'
         },
         // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
         // if left empty, your system's login shell will be used by default
@@ -145,7 +141,17 @@ module.exports = {
     //   `hyperpower`
     //   `@company/project`
     //   `project#1.0.1`
-    plugins: ["an-old-hype", "hyper-night-owl", "hyperborder","hyper-highlight-active-pane","hyper-pane","hyperpower","hyper-search"],
+    plugins: [
+//        "an-old-hype",
+//        "hyper-night-owl",
+        "hyper-highlight-active-pane",
+        "hyper-pane",
+        "hyperborder",
+        "hyperpower",
+        "hyper-search",
+        "hyper-launch-menu",
+        "hypercwd"
+    ],
     // in development, you can create a directory under
     // `~/.hyper_plugins/local/` and include it here
     // to load it and avoid it being `npm install`ed
